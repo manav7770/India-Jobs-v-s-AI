@@ -54,6 +54,13 @@
   .tab:hover { border-color: #666; color: #ddd; }
   .tab.active { background: #2a2a2a; color: #fff; border-color: #555; }
 
+  .intro-text {
+    font-size: 11px;
+    color: #8a8a8a;
+    line-height: 1.45;
+    margin-top: 2px;
+  }
+
   /* Sector toggle */
   .sector-toggle {
     display: flex;
@@ -302,19 +309,38 @@
     flex: 1;
     display: none;
     position: relative;
+    background: #151515;
+    border: 1px solid #242424;
+    border-radius: 6px;
   }
   #scatterCanvas { width: 100%; height: 100%; }
   .scatter-axis-label {
     position: absolute;
-    color: #666;
-    font-size: 11px;
-    font-weight: 500;
+    color: #8b8b8b;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    background: rgba(20,20,20,0.75);
+    padding: 2px 6px;
+    border-radius: 4px;
   }
   .scatter-x-label { bottom: 10px; left: 50%; transform: translateX(-50%); }
   .scatter-y-label {
     left: 10px; top: 50%;
     transform: translateY(-50%) rotate(-90deg);
     transform-origin: left center;
+  }
+  .scatter-caption {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    font-size: 10px;
+    color: #777;
+    background: rgba(20,20,20,0.75);
+    border: 1px solid #2a2a2a;
+    border-radius: 4px;
+    padding: 4px 8px;
+    pointer-events: none;
   }
 </style>
 </head>
@@ -326,6 +352,10 @@
     <div class="tab-bar">
       <button class="tab active" id="tabTreemap" onclick="showView('treemap')">Treemap</button>
       <button class="tab" id="tabScatter" onclick="showView('scatter')">Exposure vs Outlook</button>
+    </div>
+
+    <div class="intro-text">
+      This interactive map estimates how AI may affect India's workforce by combining organized job listings with PLFS informal-sector data.
     </div>
 
     <div class="sector-toggle" id="sectorToggle">
@@ -398,6 +428,7 @@
     <div id="treemap"></div>
     <div id="scatterContainer">
       <canvas id="scatterCanvas"></canvas>
+      <div class="scatter-caption">Bubble size = workforce size</div>
       <div class="scatter-axis-label scatter-x-label">AI Exposure Score →</div>
       <div class="scatter-axis-label scatter-y-label">↑ Avg Salary (Lakhs PA)</div>
     </div>
@@ -439,6 +470,34 @@ function exposureColor(score) {
   const g = Math.round(a[1] + t*(b[1]-a[1]));
   const bl = Math.round(a[2] + t*(b[2]-a[2]));
   return `rgb(${r},${g},${bl})`;
+}
+
+function exposureColorRgba(score, alpha = 1) {
+  const s = Math.max(0, Math.min(10, score));
+  const stops = [
+    [0,  [30, 80, 15]],
+    [1,  [38, 95, 18]],
+    [2,  [50, 110, 22]],
+    [3,  [75, 120, 25]],
+    [4,  [115, 125, 28]],
+    [5,  [145, 125, 30]],
+    [6,  [175, 115, 32]],
+    [7,  [190, 100, 32]],
+    [8,  [185, 70, 28]],
+    [9,  [170, 48, 28]],
+    [10, [155, 30, 25]],
+  ];
+  const idx = Math.floor(s);
+  if (idx >= 10) {
+    const [r, g, b] = stops[10][1];
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+  const t = s - idx;
+  const a = stops[idx][1], b = stops[idx+1][1];
+  const r = Math.round(a[0] + t*(b[0]-a[0]));
+  const g = Math.round(a[1] + t*(b[1]-a[1]));
+  const bl = Math.round(a[2] + t*(b[2]-a[2]));
+  return `rgba(${r},${g},${bl},${alpha})`;
 }
 
 /* ─── Sector filter ─── */
@@ -827,47 +886,72 @@ function renderScatter() {
   const pad = {left:65, right:30, top:30, bottom:50};
   const pw = W-pad.left-pad.right, ph = H-pad.top-pad.bottom;
 
-  ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
+  ctx.fillStyle = '#121212';
+  ctx.fillRect(pad.left, pad.top, pw, ph);
+
+  ctx.strokeStyle = '#3a3a3a'; ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(pad.left, pad.top);
   ctx.lineTo(pad.left, pad.top+ph);
   ctx.lineTo(pad.left+pw, pad.top+ph);
   ctx.stroke();
 
-  ctx.strokeStyle = '#242424'; ctx.setLineDash([2,4]);
+  ctx.strokeStyle = '#242424'; ctx.setLineDash([2,5]);
   for (let i=0;i<=10;i+=2) {
     const x = pad.left + (i/10)*pw;
     ctx.beginPath(); ctx.moveTo(x,pad.top); ctx.lineTo(x,pad.top+ph); ctx.stroke();
-    ctx.fillStyle='#555'; ctx.font='10px Inter'; ctx.textAlign='center';
+    ctx.fillStyle='#666'; ctx.font='10px Inter'; ctx.textAlign='center';
     ctx.fillText(i, x, pad.top+ph+16);
   }
   const maxSal = Math.ceil(Math.max(...DATA.categories.map(c=>c.avg_salary_lakhs))/5)*5;
   for (let s=0;s<=maxSal;s+=5) {
     const y = pad.top+ph-(s/maxSal)*ph;
     ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(pad.left+pw,y); ctx.stroke();
-    ctx.fillStyle='#555'; ctx.font='10px Inter'; ctx.textAlign='right';
+    ctx.fillStyle='#666'; ctx.font='10px Inter'; ctx.textAlign='right';
     ctx.fillText('₹'+s+'L', pad.left-8, y+4);
   }
   ctx.setLineDash([]);
 
   const maxCnt = Math.max(...DATA.categories.map(c=>c.count));
+  const labelSet = new Set(
+    [...DATA.categories]
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 12)
+      .map(c => c.name)
+  );
+
   DATA.categories.forEach(c => {
     const x = pad.left + (c.ai_exposure/10)*pw;
     const y = pad.top+ph-(c.avg_salary_lakhs/maxSal)*ph;
     const logSize = Math.log10(c.count+1) / Math.log10(maxCnt+1);
-    const r = 8 + logSize * 28;
+    const r = 6 + logSize * 24;
 
     ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
-    ctx.fillStyle = exposureColor(c.ai_exposure)+'88';
+    ctx.fillStyle = exposureColorRgba(c.ai_exposure, 0.22);
     ctx.fill();
-    ctx.strokeStyle = exposureColor(c.ai_exposure);
-    ctx.lineWidth = 1.5;
+    ctx.strokeStyle = exposureColorRgba(c.ai_exposure, 0.95);
+    ctx.lineWidth = 1.3;
     ctx.stroke();
 
-    if (r > 16) {
-      ctx.fillStyle = '#fff'; ctx.font = 'bold 8px Inter'; ctx.textAlign = 'center';
-      const label = c.name.length > 18 ? c.name.substring(0,16)+'…' : c.name;
-      ctx.fillText(label, x, y+3);
+    if (labelSet.has(c.name) && r > 11) {
+      const label = c.name.length > 18 ? c.name.substring(0, 16) + '…' : c.name;
+      ctx.font = '600 9px Inter';
+      const w = ctx.measureText(label).width + 10;
+      const h = 14;
+      const lx = x - w / 2;
+      const ly = y - h / 2;
+
+      ctx.fillStyle = 'rgba(18,18,18,0.82)';
+      ctx.fillRect(lx, ly, w, h);
+      ctx.strokeStyle = 'rgba(70,70,70,0.7)';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(lx, ly, w, h);
+
+      ctx.fillStyle = '#d8d8d8';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(label, x, y + 0.5);
+      ctx.textBaseline = 'alphabetic';
     }
   });
 }
