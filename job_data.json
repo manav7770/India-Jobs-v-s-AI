@@ -1,0 +1,2149 @@
+{
+  "total_workers": 548913612,
+  "total_workers_formatted": "549M",
+  "organized_sector_workers": 41913612,
+  "informal_sector_workers": 507000000,
+  "naukri_listings": 97929,
+  "weighted_avg_exposure": 1.7,
+  "exposure_breakdown": {
+    "Minimal (0-1)": 401316720,
+    "Low (2-3)": 89608896,
+    "Moderate (4-5)": 35882652,
+    "High (6-7)": 10359740,
+    "Very high (8-10)": 11745604
+  },
+  "exposure_by_pay": {
+    "<3L": 1.2,
+    "3-6L": 1.9,
+    "6-10L": 2.7,
+    "10-20L": 4.0,
+    "20L+": 5.6
+  },
+  "exposure_by_experience": {
+    "Fresher (0-1)": 1.7,
+    "Junior (1-3)": 1.6,
+    "Mid (3-7)": 1.5,
+    "Senior (7-12)": 1.4,
+    "Expert (12+)": 1.3
+  },
+  "wages_exposed_crores": 1552015.0,
+  "data_sources": [
+    "Naukri.com Indian Job Market Dataset 2025 (97,929 listings)",
+    "PLFS Annual Report July 2023 \u2013 June 2024 (MoSPI/NSO)",
+    "Wikipedia Economy of India (citing PLFS, ILO, World Bank, IBEF)",
+    "PIB press releases, Economic Survey 2024-25"
+  ],
+  "categories": [
+    {
+      "name": "Farmers & Agricultural Workers",
+      "count": 280000000,
+      "naukri_listings": 0,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 0.9,
+      "avg_experience": 15,
+      "pay_distribution": {
+        "<3L": 266000000,
+        "3-6L": 14000000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 8400000,
+        "Junior (1-3)": 19600000,
+        "Mid (3-7)": 56000000,
+        "Senior (7-12)": 84000000,
+        "Expert (12+)": 112000000
+      },
+      "top_cities": [
+        [
+          "Rural India",
+          240000000
+        ],
+        [
+          "Uttar Pradesh",
+          45000000
+        ],
+        [
+          "Bihar",
+          22000000
+        ],
+        [
+          "Madhya Pradesh",
+          18000000
+        ],
+        [
+          "Rajasthan",
+          16000000
+        ]
+      ],
+      "sector": "agriculture",
+      "data_source": "plfs",
+      "description": "Cultivators, agricultural labourers, farmers, dairy workers, fishermen, forestry workers. India's largest employment sector \u2014 mostly self-employed smallholders on <1 hectare. Minimal AI exposure: physical outdoor labour, rain-dependent, subsistence-level tasks.",
+      "source_note": "PLFS 2023-24: 46.1% of 607M workforce",
+      "percentage": 51.01
+    },
+    {
+      "name": "Construction Labourers",
+      "count": 62000000,
+      "naukri_listings": 0,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 1.8,
+      "avg_experience": 8,
+      "pay_distribution": {
+        "<3L": 37200000,
+        "3-6L": 21700000,
+        "6-10L": 3100000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 3100000,
+        "Junior (1-3)": 6200000,
+        "Mid (3-7)": 15500000,
+        "Senior (7-12)": 21700000,
+        "Expert (12+)": 15500000
+      },
+      "top_cities": [
+        [
+          "Rural India",
+          25000000
+        ],
+        [
+          "Delhi NCR",
+          5000000
+        ],
+        [
+          "Mumbai",
+          4000000
+        ],
+        [
+          "Bengaluru",
+          3000000
+        ],
+        [
+          "Hyderabad",
+          2500000
+        ]
+      ],
+      "sector": "construction",
+      "data_source": "plfs",
+      "description": "Masons, brick-layers, bar-benders, painters, plasterers, road construction workers, MGNREGA workers. 83.2M people worked under MGNREGA in FY24 alone. Heavily physical, on-site labour with near-zero AI exposure.",
+      "source_note": "PLFS 2023-24 + Knight Frank/World Bank (71M total, minus 9M organized)",
+      "percentage": 11.3
+    },
+    {
+      "name": "Textile & Garment Workers",
+      "count": 30000000,
+      "naukri_listings": 0,
+      "ai_exposure": 2,
+      "avg_salary_lakhs": 1.5,
+      "avg_experience": 6,
+      "pay_distribution": {
+        "<3L": 18000000,
+        "3-6L": 10500000,
+        "6-10L": 1500000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 1500000,
+        "Junior (1-3)": 3000000,
+        "Mid (3-7)": 7500000,
+        "Senior (7-12)": 10500000,
+        "Expert (12+)": 7500000
+      },
+      "top_cities": [
+        [
+          "Tirupur",
+          3000000
+        ],
+        [
+          "Surat",
+          2500000
+        ],
+        [
+          "Ludhiana",
+          2000000
+        ],
+        [
+          "Mumbai",
+          1800000
+        ],
+        [
+          "Bengaluru",
+          1500000
+        ]
+      ],
+      "sector": "manufacturing",
+      "data_source": "plfs",
+      "description": "Weavers, tailors, garment factory workers, handloom artisans, dyeing workers, embroidery workers. India's second-largest employment sector after agriculture. Low AI exposure: manual dexterity, craft-based work.",
+      "source_note": "Ministry of Textiles (35M+ direct employment); IBEF",
+      "percentage": 5.47
+    },
+    {
+      "name": "Retail Shop Workers",
+      "count": 30000000,
+      "naukri_listings": 0,
+      "ai_exposure": 3,
+      "avg_salary_lakhs": 1.8,
+      "avg_experience": 5,
+      "pay_distribution": {
+        "<3L": 18000000,
+        "3-6L": 10500000,
+        "6-10L": 1500000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 4500000,
+        "Junior (1-3)": 7500000,
+        "Mid (3-7)": 10500000,
+        "Senior (7-12)": 6000000,
+        "Expert (12+)": 1500000
+      },
+      "top_cities": [
+        [
+          "Delhi NCR",
+          3000000
+        ],
+        [
+          "Mumbai",
+          2800000
+        ],
+        [
+          "Kolkata",
+          2000000
+        ],
+        [
+          "Chennai",
+          1500000
+        ],
+        [
+          "Bengaluru",
+          1400000
+        ]
+      ],
+      "sector": "trade",
+      "data_source": "plfs",
+      "description": "Kirana/grocery store workers, small retail shop assistants, market stall operators, wholesale traders, mandi workers. India has 12-14M retail outlets, mostly unorganized. Limited AI exposure: personal interaction, cash handling, inventory by experience.",
+      "source_note": "PLFS; 35M retail employment (IBEF); kirana store employment estimates",
+      "percentage": 5.47
+    },
+    {
+      "name": "Street Vendors & Hawkers",
+      "count": 20000000,
+      "naukri_listings": 0,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 1.2,
+      "avg_experience": 10,
+      "pay_distribution": {
+        "<3L": 19000000,
+        "3-6L": 1000000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 1000000,
+        "Junior (1-3)": 2000000,
+        "Mid (3-7)": 5000000,
+        "Senior (7-12)": 7000000,
+        "Expert (12+)": 5000000
+      },
+      "top_cities": [
+        [
+          "Mumbai",
+          2500000
+        ],
+        [
+          "Delhi",
+          2000000
+        ],
+        [
+          "Kolkata",
+          1500000
+        ],
+        [
+          "Chennai",
+          1200000
+        ],
+        [
+          "Bengaluru",
+          800000
+        ]
+      ],
+      "sector": "trade",
+      "data_source": "plfs",
+      "description": "Vegetable sellers, fruit vendors, chai-wallahs, flower sellers, roadside food stalls. An estimated 10-20M urban street vendors across India. Personal, location-dependent, cash-based economic activity.",
+      "source_note": "Ministry of Housing 2024 estimates; Street Vendors Act 2014",
+      "percentage": 3.64
+    },
+    {
+      "name": "Government & Defense Personnel",
+      "count": 20000000,
+      "naukri_listings": 0,
+      "ai_exposure": 4,
+      "avg_salary_lakhs": 5.0,
+      "avg_experience": 12,
+      "pay_distribution": {
+        "<3L": 4000000,
+        "3-6L": 10000000,
+        "6-10L": 5000000,
+        "10-20L": 1000000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 600000,
+        "Junior (1-3)": 1400000,
+        "Mid (3-7)": 4000000,
+        "Senior (7-12)": 6000000,
+        "Expert (12+)": 8000000
+      },
+      "top_cities": [
+        [
+          "Delhi NCR",
+          3000000
+        ],
+        [
+          "State Capitals",
+          5000000
+        ],
+        [
+          "Cantonment Areas",
+          2000000
+        ],
+        [
+          "Lucknow",
+          1000000
+        ],
+        [
+          "Chandigarh",
+          500000
+        ]
+      ],
+      "sector": "government",
+      "data_source": "plfs",
+      "description": "Central & state government clerks, peons, officers; Armed Forces (1.4M active); paramilitary (1M+); police (2.5M). Government processes are rules-based and paper-heavy \u2014 many clerical tasks are AI-automatable, but security/policing/defense roles have low exposure.",
+      "source_note": "6th & 7th CPC data; Armed Forces + Central + State employees",
+      "percentage": 3.64
+    },
+    {
+      "name": "Auto & Rickshaw Drivers",
+      "count": 18000000,
+      "naukri_listings": 0,
+      "ai_exposure": 3,
+      "avg_salary_lakhs": 2.4,
+      "avg_experience": 8,
+      "pay_distribution": {
+        "<3L": 10800000,
+        "3-6L": 6300000,
+        "6-10L": 900000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 900000,
+        "Junior (1-3)": 1800000,
+        "Mid (3-7)": 4500000,
+        "Senior (7-12)": 6300000,
+        "Expert (12+)": 4500000
+      },
+      "top_cities": [
+        [
+          "Delhi NCR",
+          2500000
+        ],
+        [
+          "Mumbai",
+          2000000
+        ],
+        [
+          "Bengaluru",
+          1500000
+        ],
+        [
+          "Chennai",
+          1200000
+        ],
+        [
+          "Hyderabad",
+          1000000
+        ]
+      ],
+      "sector": "transport",
+      "data_source": "plfs",
+      "description": "Auto-rickshaw drivers, taxi/cab drivers (incl. app-based), truck drivers, bus drivers. Navigation & route planning increasingly AI-assisted, but driving itself remains manual in India's complex traffic. Autonomous vehicles decades away for Indian roads.",
+      "source_note": "Transport sector estimates; Ola/Uber India driver base data",
+      "percentage": 3.28
+    },
+    {
+      "name": "Domestic Workers & Helpers",
+      "count": 15000000,
+      "naukri_listings": 0,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 0.8,
+      "avg_experience": 7,
+      "pay_distribution": {
+        "<3L": 14250000,
+        "3-6L": 750000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 750000,
+        "Junior (1-3)": 1500000,
+        "Mid (3-7)": 3750000,
+        "Senior (7-12)": 5250000,
+        "Expert (12+)": 3750000
+      },
+      "top_cities": [
+        [
+          "Delhi NCR",
+          2000000
+        ],
+        [
+          "Mumbai",
+          1800000
+        ],
+        [
+          "Bengaluru",
+          1200000
+        ],
+        [
+          "Hyderabad",
+          1000000
+        ],
+        [
+          "Chennai",
+          900000
+        ]
+      ],
+      "sector": "services",
+      "data_source": "plfs",
+      "description": "Maids, cooks, nannies, guards/watchmen, home-based care workers. Overwhelmingly informal, predominantly women, mostly in urban households. Personal service tasks with near-zero AI automation potential.",
+      "source_note": "ILO India domestic workers estimate; National Domestic Workers Movement",
+      "percentage": 2.73
+    },
+    {
+      "name": "Artisans & Handicraft Workers",
+      "count": 12000000,
+      "naukri_listings": 0,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 1.0,
+      "avg_experience": 12,
+      "pay_distribution": {
+        "<3L": 11400000,
+        "3-6L": 600000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 360000,
+        "Junior (1-3)": 840000,
+        "Mid (3-7)": 2400000,
+        "Senior (7-12)": 3600000,
+        "Expert (12+)": 4800000
+      },
+      "top_cities": [
+        [
+          "Jaipur",
+          1500000
+        ],
+        [
+          "Moradabad",
+          800000
+        ],
+        [
+          "Varanasi",
+          700000
+        ],
+        [
+          "Lucknow",
+          600000
+        ],
+        [
+          "Firozabad",
+          500000
+        ]
+      ],
+      "sector": "manufacturing",
+      "data_source": "plfs",
+      "description": "Potters, carpenters, blacksmiths, leather workers, bamboo craft workers, jewelry artisans, stone carvers, khadi weavers. Traditional craft-based occupations passed through generations. AI has essentially zero capability to replicate these physical-creative skills.",
+      "source_note": "Ministry of Textiles; Handicraft Export Council; khadi sector estimates",
+      "percentage": 2.19
+    },
+    {
+      "name": "Food Processing & Beverage Workers",
+      "count": 8000000,
+      "naukri_listings": 0,
+      "ai_exposure": 2,
+      "avg_salary_lakhs": 1.5,
+      "avg_experience": 5,
+      "pay_distribution": {
+        "<3L": 4800000,
+        "3-6L": 2800000,
+        "6-10L": 400000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 1200000,
+        "Junior (1-3)": 2000000,
+        "Mid (3-7)": 2800000,
+        "Senior (7-12)": 1600000,
+        "Expert (12+)": 400000
+      },
+      "top_cities": [
+        [
+          "Gujarat",
+          1200000
+        ],
+        [
+          "Maharashtra",
+          1000000
+        ],
+        [
+          "Tamil Nadu",
+          800000
+        ],
+        [
+          "Uttar Pradesh",
+          700000
+        ],
+        [
+          "Andhra Pradesh",
+          600000
+        ]
+      ],
+      "sector": "manufacturing",
+      "data_source": "plfs",
+      "description": "Workers in food processing units, bakeries, beverage plants, cold storage, dairy processing, rice/flour mills, sugar mills. Mix of factory work and small-scale units. Some automation in large plants, but vast majority is manual labour.",
+      "source_note": "Ministry of Food Processing Industries; NSSO estimates",
+      "percentage": 1.46
+    },
+    {
+      "name": "Mining & Quarry Workers",
+      "count": 6000000,
+      "naukri_listings": 0,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 2.0,
+      "avg_experience": 10,
+      "pay_distribution": {
+        "<3L": 3600000,
+        "3-6L": 2100000,
+        "6-10L": 300000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 300000,
+        "Junior (1-3)": 600000,
+        "Mid (3-7)": 1500000,
+        "Senior (7-12)": 2100000,
+        "Expert (12+)": 1500000
+      },
+      "top_cities": [
+        [
+          "Jharkhand",
+          1500000
+        ],
+        [
+          "Odisha",
+          1000000
+        ],
+        [
+          "Chhattisgarh",
+          800000
+        ],
+        [
+          "Rajasthan",
+          700000
+        ],
+        [
+          "Madhya Pradesh",
+          500000
+        ]
+      ],
+      "sector": "mining",
+      "data_source": "plfs",
+      "description": "Coal miners, stone quarry workers, sand miners, iron ore workers, limestone miners. Heavily physical, hazardous work with minimal technology adoption in the unorganized segment. Large-scale mines use some automation but the workforce is predominantly manual.",
+      "source_note": "Ministry of Mines; 11M direct+indirect (Wikipedia/Economy of India)",
+      "percentage": 1.09
+    },
+    {
+      "name": "Salon & Beauty Workers",
+      "count": 6000000,
+      "naukri_listings": 0,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 1.8,
+      "avg_experience": 5,
+      "pay_distribution": {
+        "<3L": 3600000,
+        "3-6L": 2100000,
+        "6-10L": 300000
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 900000,
+        "Junior (1-3)": 1500000,
+        "Mid (3-7)": 2100000,
+        "Senior (7-12)": 1200000,
+        "Expert (12+)": 300000
+      },
+      "top_cities": [
+        [
+          "Mumbai",
+          600000
+        ],
+        [
+          "Delhi",
+          550000
+        ],
+        [
+          "Bengaluru",
+          400000
+        ],
+        [
+          "Hyderabad",
+          350000
+        ],
+        [
+          "Chennai",
+          300000
+        ]
+      ],
+      "sector": "services",
+      "data_source": "plfs",
+      "description": "Barbers, hairdressers, beauticians, spa workers, laundry/dhobi workers. Highly personal, physical-touch services. India has millions of neighbourhood barbershops and beauty parlours. AI cannot perform these manual services.",
+      "source_note": "NSSO estimates; beauty & wellness industry reports",
+      "percentage": 1.09
+    },
+    {
+      "name": "Software Developers",
+      "count": 5366692,
+      "naukri_listings": 12539,
+      "ai_exposure": 8,
+      "avg_salary_lakhs": 14.7,
+      "avg_experience": 7.4,
+      "pay_distribution": {
+        "20L+": 401,
+        "3-6L": 213,
+        "6-10L": 186,
+        "<3L": 89,
+        "10-20L": 601
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 6698,
+        "Expert (12+)": 1647,
+        "Senior (7-12)": 3263,
+        "Fresher (0-1)": 158,
+        "Junior (1-3)": 773
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          3899
+        ],
+        [
+          "Hyderabad",
+          1947
+        ],
+        [
+          "Pune",
+          1511
+        ],
+        [
+          "Chennai",
+          744
+        ],
+        [
+          "Mumbai",
+          552
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.98
+    },
+    {
+      "name": "Sales Executives & Managers",
+      "count": 4389140,
+      "naukri_listings": 10255,
+      "ai_exposure": 4,
+      "avg_salary_lakhs": 5.4,
+      "avg_experience": 4.6,
+      "pay_distribution": {
+        "<3L": 1529,
+        "3-6L": 2559,
+        "10-20L": 424,
+        "6-10L": 751,
+        "20L+": 137
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 1320,
+        "Expert (12+)": 484,
+        "Mid (3-7)": 4262,
+        "Junior (1-3)": 3481,
+        "Fresher (0-1)": 708
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          861
+        ],
+        [
+          "Hyderabad",
+          647
+        ],
+        [
+          "Mumbai",
+          613
+        ],
+        [
+          "Gurugram",
+          489
+        ],
+        [
+          "Noida",
+          485
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.8
+    },
+    {
+      "name": "Other",
+      "count": 4066428,
+      "naukri_listings": 9501,
+      "ai_exposure": 5,
+      "avg_salary_lakhs": 8.9,
+      "avg_experience": 5.9,
+      "pay_distribution": {
+        "6-10L": 554,
+        "10-20L": 616,
+        "3-6L": 1240,
+        "<3L": 885,
+        "20L+": 413
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 3851,
+        "Junior (1-3)": 1890,
+        "Senior (7-12)": 2149,
+        "Expert (12+)": 817,
+        "Fresher (0-1)": 794
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          1352
+        ],
+        [
+          "Hyderabad",
+          926
+        ],
+        [
+          "Pune",
+          636
+        ],
+        [
+          "Chennai",
+          512
+        ],
+        [
+          "Gurugram",
+          467
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.74
+    },
+    {
+      "name": "Customer Support & BPO",
+      "count": 2333884,
+      "naukri_listings": 5453,
+      "ai_exposure": 9,
+      "avg_salary_lakhs": 3.4,
+      "avg_experience": 2.5,
+      "pay_distribution": {
+        "<3L": 1543,
+        "3-6L": 1989,
+        "10-20L": 25,
+        "6-10L": 85,
+        "20L+": 9
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 3229,
+        "Senior (7-12)": 131,
+        "Expert (12+)": 43,
+        "Mid (3-7)": 925,
+        "Fresher (0-1)": 1125
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          726
+        ],
+        [
+          "Noida",
+          490
+        ],
+        [
+          "Mumbai",
+          375
+        ],
+        [
+          "Gurugram",
+          355
+        ],
+        [
+          "Hyderabad",
+          343
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.43
+    },
+    {
+      "name": "Project & Product Managers",
+      "count": 1755656,
+      "naukri_listings": 4102,
+      "ai_exposure": 5,
+      "avg_salary_lakhs": 17.9,
+      "avg_experience": 8.5,
+      "pay_distribution": {
+        "10-20L": 117,
+        "6-10L": 69,
+        "3-6L": 60,
+        "20L+": 229,
+        "<3L": 18
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 1412,
+        "Expert (12+)": 945,
+        "Mid (3-7)": 1364,
+        "Junior (1-3)": 317,
+        "Fresher (0-1)": 64
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          1085
+        ],
+        [
+          "Hyderabad",
+          572
+        ],
+        [
+          "Pune",
+          404
+        ],
+        [
+          "Mumbai",
+          354
+        ],
+        [
+          "Gurugram",
+          254
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.32
+    },
+    {
+      "name": "Consulting",
+      "count": 1596440,
+      "naukri_listings": 3730,
+      "ai_exposure": 5,
+      "avg_salary_lakhs": 17.7,
+      "avg_experience": 6.7,
+      "pay_distribution": {
+        "20L+": 305,
+        "3-6L": 165,
+        "<3L": 83,
+        "10-20L": 180,
+        "6-10L": 77
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 1361,
+        "Junior (1-3)": 503,
+        "Mid (3-7)": 1542,
+        "Expert (12+)": 245,
+        "Fresher (0-1)": 79
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          812
+        ],
+        [
+          "Hyderabad",
+          588
+        ],
+        [
+          "Pune",
+          333
+        ],
+        [
+          "Mumbai",
+          268
+        ],
+        [
+          "Gurugram",
+          177
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.29
+    },
+    {
+      "name": "SAP & ERP Consultants",
+      "count": 1590448,
+      "naukri_listings": 3716,
+      "ai_exposure": 6,
+      "avg_salary_lakhs": 9.9,
+      "avg_experience": 7.0,
+      "pay_distribution": {
+        "3-6L": 294,
+        "10-20L": 138,
+        "<3L": 82,
+        "6-10L": 72,
+        "20L+": 116
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 493,
+        "Mid (3-7)": 1344,
+        "Senior (7-12)": 1468,
+        "Fresher (0-1)": 91,
+        "Expert (12+)": 320
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          795
+        ],
+        [
+          "Hyderabad",
+          620
+        ],
+        [
+          "Pune",
+          259
+        ],
+        [
+          "Mumbai",
+          188
+        ],
+        [
+          "Chennai",
+          182
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.29
+    },
+    {
+      "name": "Operations & Logistics",
+      "count": 1518544,
+      "naukri_listings": 3548,
+      "ai_exposure": 4,
+      "avg_salary_lakhs": 8.2,
+      "avg_experience": 6.1,
+      "pay_distribution": {
+        "3-6L": 475,
+        "<3L": 218,
+        "6-10L": 163,
+        "10-20L": 134,
+        "20L+": 84
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 760,
+        "Mid (3-7)": 1501,
+        "Expert (12+)": 369,
+        "Junior (1-3)": 698,
+        "Fresher (0-1)": 220
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          637
+        ],
+        [
+          "Mumbai",
+          339
+        ],
+        [
+          "Hyderabad",
+          268
+        ],
+        [
+          "Pune",
+          210
+        ],
+        [
+          "Gurugram",
+          208
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.28
+    },
+    {
+      "name": "HR & Talent Acquisition",
+      "count": 1411116,
+      "naukri_listings": 3297,
+      "ai_exposure": 6,
+      "avg_salary_lakhs": 5.6,
+      "avg_experience": 4.8,
+      "pay_distribution": {
+        "3-6L": 598,
+        "<3L": 546,
+        "6-10L": 282,
+        "20L+": 66,
+        "10-20L": 114
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 913,
+        "Senior (7-12)": 455,
+        "Mid (3-7)": 1291,
+        "Fresher (0-1)": 441,
+        "Expert (12+)": 197
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          336
+        ],
+        [
+          "Hyderabad",
+          255
+        ],
+        [
+          "Noida",
+          183
+        ],
+        [
+          "Gurugram",
+          179
+        ],
+        [
+          "Chennai",
+          177
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.26
+    },
+    {
+      "name": "Executive Assistants & Admin",
+      "count": 1404696,
+      "naukri_listings": 3282,
+      "ai_exposure": 8,
+      "avg_salary_lakhs": 5.7,
+      "avg_experience": 5.1,
+      "pay_distribution": {
+        "3-6L": 401,
+        "6-10L": 206,
+        "10-20L": 157,
+        "<3L": 486,
+        "20L+": 33
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 1405,
+        "Expert (12+)": 109,
+        "Junior (1-3)": 753,
+        "Senior (7-12)": 736,
+        "Fresher (0-1)": 279
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          391
+        ],
+        [
+          "Hyderabad",
+          271
+        ],
+        [
+          "Mumbai",
+          250
+        ],
+        [
+          "Pune",
+          182
+        ],
+        [
+          "Gurugram",
+          167
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.26
+    },
+    {
+      "name": "Accountants & Finance",
+      "count": 1393996,
+      "naukri_listings": 3257,
+      "ai_exposure": 8,
+      "avg_salary_lakhs": 6.5,
+      "avg_experience": 5.2,
+      "pay_distribution": {
+        "3-6L": 598,
+        "<3L": 435,
+        "6-10L": 187,
+        "10-20L": 146,
+        "20L+": 69
+      },
+      "experience_distribution": {
+        "Expert (12+)": 201,
+        "Junior (1-3)": 901,
+        "Mid (3-7)": 1420,
+        "Senior (7-12)": 566,
+        "Fresher (0-1)": 169
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          431
+        ],
+        [
+          "Mumbai",
+          218
+        ],
+        [
+          "Hyderabad",
+          203
+        ],
+        [
+          "Gurugram",
+          191
+        ],
+        [
+          "Chennai",
+          155
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.25
+    },
+    {
+      "name": "Banking & Insurance",
+      "count": 1372168,
+      "naukri_listings": 3206,
+      "ai_exposure": 6,
+      "avg_salary_lakhs": 6.4,
+      "avg_experience": 4.7,
+      "pay_distribution": {
+        "3-6L": 670,
+        "<3L": 228,
+        "10-20L": 140,
+        "6-10L": 183,
+        "20L+": 57
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 1383,
+        "Junior (1-3)": 1098,
+        "Senior (7-12)": 447,
+        "Fresher (0-1)": 148,
+        "Expert (12+)": 130
+      },
+      "top_cities": [
+        [
+          "Mumbai",
+          247
+        ],
+        [
+          "Bengaluru",
+          212
+        ],
+        [
+          "Hyderabad",
+          195
+        ],
+        [
+          "Chennai",
+          174
+        ],
+        [
+          "Pune",
+          137
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.25
+    },
+    {
+      "name": "Data Engineers & Analysts",
+      "count": 1221512,
+      "naukri_listings": 2854,
+      "ai_exposure": 7,
+      "avg_salary_lakhs": 14.6,
+      "avg_experience": 6.6,
+      "pay_distribution": {
+        "3-6L": 92,
+        "<3L": 62,
+        "20L+": 242,
+        "10-20L": 252,
+        "6-10L": 63
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 289,
+        "Mid (3-7)": 1257,
+        "Senior (7-12)": 1138,
+        "Fresher (0-1)": 69,
+        "Expert (12+)": 101
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          529
+        ],
+        [
+          "Hyderabad",
+          453
+        ],
+        [
+          "Pune",
+          225
+        ],
+        [
+          "Gurugram",
+          173
+        ],
+        [
+          "Chennai",
+          150
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.22
+    },
+    {
+      "name": "DevOps & Cloud Engineers",
+      "count": 1027200,
+      "naukri_listings": 2400,
+      "ai_exposure": 6,
+      "avg_salary_lakhs": 17.1,
+      "avg_experience": 7.4,
+      "pay_distribution": {
+        "3-6L": 28,
+        "10-20L": 149,
+        "20L+": 117,
+        "6-10L": 34,
+        "<3L": 13
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 1021,
+        "Mid (3-7)": 1076,
+        "Expert (12+)": 166,
+        "Fresher (0-1)": 14,
+        "Junior (1-3)": 123
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          602
+        ],
+        [
+          "Hyderabad",
+          387
+        ],
+        [
+          "Pune",
+          254
+        ],
+        [
+          "Chennai",
+          165
+        ],
+        [
+          "Hybrid - Bengaluru",
+          118
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.19
+    },
+    {
+      "name": "Teaching & Training",
+      "count": 1017356,
+      "naukri_listings": 2377,
+      "ai_exposure": 4,
+      "avg_salary_lakhs": 5.8,
+      "avg_experience": 4.5,
+      "pay_distribution": {
+        "<3L": 284,
+        "6-10L": 136,
+        "3-6L": 414,
+        "10-20L": 99,
+        "20L+": 35
+      },
+      "experience_distribution": {
+        "Expert (12+)": 112,
+        "Junior (1-3)": 827,
+        "Mid (3-7)": 985,
+        "Senior (7-12)": 295,
+        "Fresher (0-1)": 158
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          233
+        ],
+        [
+          "Hyderabad",
+          163
+        ],
+        [
+          "Mumbai",
+          143
+        ],
+        [
+          "Noida",
+          122
+        ],
+        [
+          "Remote",
+          110
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.19
+    },
+    {
+      "name": "Civil & Construction",
+      "count": 997240,
+      "naukri_listings": 2330,
+      "ai_exposure": 3,
+      "avg_salary_lakhs": 10.2,
+      "avg_experience": 9.0,
+      "pay_distribution": {
+        "3-6L": 249,
+        "<3L": 158,
+        "20L+": 118,
+        "6-10L": 99,
+        "10-20L": 86
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 819,
+        "Mid (3-7)": 618,
+        "Expert (12+)": 623,
+        "Junior (1-3)": 204,
+        "Fresher (0-1)": 66
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          493
+        ],
+        [
+          "Hyderabad",
+          257
+        ],
+        [
+          "Pune",
+          207
+        ],
+        [
+          "Chennai",
+          128
+        ],
+        [
+          "Mumbai",
+          117
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.18
+    },
+    {
+      "name": "Business Development",
+      "count": 887672,
+      "naukri_listings": 2074,
+      "ai_exposure": 4,
+      "avg_salary_lakhs": 5.7,
+      "avg_experience": 4.2,
+      "pay_distribution": {
+        "6-10L": 184,
+        "10-20L": 105,
+        "3-6L": 574,
+        "<3L": 262,
+        "20L+": 29
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 866,
+        "Junior (1-3)": 685,
+        "Senior (7-12)": 248,
+        "Fresher (0-1)": 198,
+        "Expert (12+)": 77
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          167
+        ],
+        [
+          "Noida",
+          130
+        ],
+        [
+          "Hyderabad",
+          108
+        ],
+        [
+          "Pune",
+          95
+        ],
+        [
+          "Chennai",
+          90
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.16
+    },
+    {
+      "name": "Marketing & Digital Marketing",
+      "count": 886816,
+      "naukri_listings": 2072,
+      "ai_exposure": 7,
+      "avg_salary_lakhs": 5.2,
+      "avg_experience": 4.1,
+      "pay_distribution": {
+        "<3L": 309,
+        "3-6L": 418,
+        "10-20L": 87,
+        "6-10L": 123,
+        "20L+": 13
+      },
+      "experience_distribution": {
+        "Expert (12+)": 59,
+        "Mid (3-7)": 919,
+        "Junior (1-3)": 616,
+        "Fresher (0-1)": 240,
+        "Senior (7-12)": 238
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          215
+        ],
+        [
+          "Hyderabad",
+          133
+        ],
+        [
+          "Noida",
+          125
+        ],
+        [
+          "Gurugram",
+          118
+        ],
+        [
+          "Mumbai",
+          114
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.16
+    },
+    {
+      "name": "IT Support & System Admin",
+      "count": 875688,
+      "naukri_listings": 2046,
+      "ai_exposure": 6,
+      "avg_salary_lakhs": 5.0,
+      "avg_experience": 5.4,
+      "pay_distribution": {
+        "3-6L": 176,
+        "<3L": 120,
+        "20L+": 8,
+        "10-20L": 26,
+        "6-10L": 27
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 502,
+        "Expert (12+)": 94,
+        "Fresher (0-1)": 114,
+        "Mid (3-7)": 936,
+        "Senior (7-12)": 400
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          619
+        ],
+        [
+          "Hyderabad",
+          265
+        ],
+        [
+          "Pune",
+          232
+        ],
+        [
+          "Gurugram",
+          120
+        ],
+        [
+          "Chennai",
+          113
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.16
+    },
+    {
+      "name": "Software Testing & QA",
+      "count": 873120,
+      "naukri_listings": 2040,
+      "ai_exposure": 8,
+      "avg_salary_lakhs": 9.4,
+      "avg_experience": 6.2,
+      "pay_distribution": {
+        "6-10L": 67,
+        "3-6L": 131,
+        "10-20L": 110,
+        "20L+": 44,
+        "<3L": 49
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 239,
+        "Mid (3-7)": 1130,
+        "Senior (7-12)": 548,
+        "Fresher (0-1)": 34,
+        "Expert (12+)": 89
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          456
+        ],
+        [
+          "Hyderabad",
+          317
+        ],
+        [
+          "Pune",
+          225
+        ],
+        [
+          "Chennai",
+          137
+        ],
+        [
+          "Noida",
+          105
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.16
+    },
+    {
+      "name": "Healthcare & Medical",
+      "count": 815340,
+      "naukri_listings": 1905,
+      "ai_exposure": 3,
+      "avg_salary_lakhs": 8.7,
+      "avg_experience": 4.0,
+      "pay_distribution": {
+        "<3L": 258,
+        "3-6L": 383,
+        "20L+": 105,
+        "6-10L": 80,
+        "10-20L": 44
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 708,
+        "Mid (3-7)": 771,
+        "Senior (7-12)": 164,
+        "Expert (12+)": 57,
+        "Fresher (0-1)": 205
+      },
+      "top_cities": [
+        [
+          "Hyderabad",
+          230
+        ],
+        [
+          "Chennai",
+          177
+        ],
+        [
+          "Bengaluru",
+          163
+        ],
+        [
+          "Mumbai",
+          104
+        ],
+        [
+          "Noida",
+          80
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.15
+    },
+    {
+      "name": "Mechanical & Manufacturing",
+      "count": 682232,
+      "naukri_listings": 1594,
+      "ai_exposure": 3,
+      "avg_salary_lakhs": 7.3,
+      "avg_experience": 6.4,
+      "pay_distribution": {
+        "3-6L": 421,
+        "6-10L": 139,
+        "10-20L": 76,
+        "<3L": 156,
+        "20L+": 53
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 744,
+        "Senior (7-12)": 307,
+        "Fresher (0-1)": 77,
+        "Expert (12+)": 197,
+        "Junior (1-3)": 269
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          146
+        ],
+        [
+          "Pune",
+          122
+        ],
+        [
+          "Chennai",
+          85
+        ],
+        [
+          "Hyderabad",
+          70
+        ],
+        [
+          "Mumbai",
+          50
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.12
+    },
+    {
+      "name": "Graphic Design & UI/UX",
+      "count": 570524,
+      "naukri_listings": 1333,
+      "ai_exposure": 7,
+      "avg_salary_lakhs": 5.8,
+      "avg_experience": 5.0,
+      "pay_distribution": {
+        "3-6L": 220,
+        "6-10L": 77,
+        "10-20L": 45,
+        "<3L": 116,
+        "20L+": 16
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 636,
+        "Junior (1-3)": 349,
+        "Fresher (0-1)": 84,
+        "Senior (7-12)": 188,
+        "Expert (12+)": 76
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          218
+        ],
+        [
+          "Hyderabad",
+          99
+        ],
+        [
+          "Noida",
+          95
+        ],
+        [
+          "Mumbai",
+          85
+        ],
+        [
+          "Chennai",
+          83
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.1
+    },
+    {
+      "name": "Data Scientists & ML Engineers",
+      "count": 557256,
+      "naukri_listings": 1302,
+      "ai_exposure": 7,
+      "avg_salary_lakhs": 21.3,
+      "avg_experience": 7.5,
+      "pay_distribution": {
+        "20L+": 83,
+        "10-20L": 53,
+        "6-10L": 17,
+        "3-6L": 8,
+        "<3L": 11
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 435,
+        "Junior (1-3)": 91,
+        "Fresher (0-1)": 30,
+        "Mid (3-7)": 568,
+        "Expert (12+)": 178
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          374
+        ],
+        [
+          "Pune",
+          157
+        ],
+        [
+          "Hyderabad",
+          153
+        ],
+        [
+          "Chennai",
+          89
+        ],
+        [
+          "Gurugram",
+          73
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.1
+    },
+    {
+      "name": "Legal & Compliance",
+      "count": 556828,
+      "naukri_listings": 1301,
+      "ai_exposure": 6,
+      "avg_salary_lakhs": 9.9,
+      "avg_experience": 6.1,
+      "pay_distribution": {
+        "6-10L": 98,
+        "3-6L": 127,
+        "20L+": 46,
+        "10-20L": 56,
+        "<3L": 36
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 564,
+        "Senior (7-12)": 280,
+        "Junior (1-3)": 241,
+        "Expert (12+)": 134,
+        "Fresher (0-1)": 82
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          180
+        ],
+        [
+          "Mumbai",
+          141
+        ],
+        [
+          "Pune",
+          105
+        ],
+        [
+          "Hyderabad",
+          99
+        ],
+        [
+          "Gurugram",
+          98
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.1
+    },
+    {
+      "name": "Electrical & Electronics",
+      "count": 520448,
+      "naukri_listings": 1216,
+      "ai_exposure": 3,
+      "avg_salary_lakhs": 7.2,
+      "avg_experience": 6.1,
+      "pay_distribution": {
+        "3-6L": 154,
+        "<3L": 96,
+        "10-20L": 55,
+        "6-10L": 75,
+        "20L+": 32
+      },
+      "experience_distribution": {
+        "Mid (3-7)": 599,
+        "Junior (1-3)": 161,
+        "Senior (7-12)": 285,
+        "Fresher (0-1)": 74,
+        "Expert (12+)": 97
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          249
+        ],
+        [
+          "Hyderabad",
+          122
+        ],
+        [
+          "Pune",
+          103
+        ],
+        [
+          "Chennai",
+          80
+        ],
+        [
+          "Mumbai",
+          42
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.09
+    },
+    {
+      "name": "Cybersecurity & Networking",
+      "count": 460528,
+      "naukri_listings": 1076,
+      "ai_exposure": 5,
+      "avg_salary_lakhs": 11.1,
+      "avg_experience": 7.1,
+      "pay_distribution": {
+        "3-6L": 48,
+        "10-20L": 52,
+        "<3L": 23,
+        "6-10L": 48,
+        "20L+": 33
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 101,
+        "Mid (3-7)": 529,
+        "Fresher (0-1)": 9,
+        "Senior (7-12)": 332,
+        "Expert (12+)": 105
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          283
+        ],
+        [
+          "Hyderabad",
+          121
+        ],
+        [
+          "Pune",
+          91
+        ],
+        [
+          "Mumbai",
+          81
+        ],
+        [
+          "Chennai",
+          77
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.08
+    },
+    {
+      "name": "Content Writers & Editors",
+      "count": 373216,
+      "naukri_listings": 872,
+      "ai_exposure": 9,
+      "avg_salary_lakhs": 4.8,
+      "avg_experience": 2.6,
+      "pay_distribution": {
+        "20L+": 4,
+        "<3L": 68,
+        "3-6L": 107,
+        "10-20L": 10,
+        "6-10L": 21
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 304,
+        "Mid (3-7)": 252,
+        "Junior (1-3)": 272,
+        "Senior (7-12)": 40,
+        "Expert (12+)": 4
+      },
+      "top_cities": [
+        [
+          "Navi Mumbai",
+          174
+        ],
+        [
+          "Bengaluru",
+          62
+        ],
+        [
+          "Hyderabad",
+          52
+        ],
+        [
+          "Mumbai",
+          41
+        ],
+        [
+          "Gurugram",
+          39
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.07
+    },
+    {
+      "name": "Hospitality & Travel",
+      "count": 363800,
+      "naukri_listings": 850,
+      "ai_exposure": 2,
+      "avg_salary_lakhs": 4.1,
+      "avg_experience": 4.6,
+      "pay_distribution": {
+        "<3L": 124,
+        "3-6L": 183,
+        "20L+": 1,
+        "6-10L": 27,
+        "10-20L": 11
+      },
+      "experience_distribution": {
+        "Fresher (0-1)": 58,
+        "Junior (1-3)": 289,
+        "Mid (3-7)": 364,
+        "Expert (12+)": 38,
+        "Senior (7-12)": 101
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          94
+        ],
+        [
+          "Mumbai",
+          80
+        ],
+        [
+          "Noida",
+          59
+        ],
+        [
+          "Gurugram",
+          48
+        ],
+        [
+          "Hyderabad",
+          46
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.07
+    },
+    {
+      "name": "Skilled Trades & Technicians",
+      "count": 316720,
+      "naukri_listings": 740,
+      "ai_exposure": 1,
+      "avg_salary_lakhs": 4.4,
+      "avg_experience": 5.0,
+      "pay_distribution": {
+        "3-6L": 160,
+        "<3L": 150,
+        "10-20L": 27,
+        "6-10L": 61
+      },
+      "experience_distribution": {
+        "Senior (7-12)": 111,
+        "Junior (1-3)": 218,
+        "Fresher (0-1)": 46,
+        "Mid (3-7)": 320,
+        "Expert (12+)": 45
+      },
+      "top_cities": [
+        [
+          "Hyderabad",
+          48
+        ],
+        [
+          "Bengaluru",
+          45
+        ],
+        [
+          "Pune",
+          35
+        ],
+        [
+          "Chennai",
+          35
+        ],
+        [
+          "Mumbai",
+          28
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.06
+    },
+    {
+      "name": "Business Analysts",
+      "count": 290184,
+      "naukri_listings": 678,
+      "ai_exposure": 7,
+      "avg_salary_lakhs": 12.7,
+      "avg_experience": 6.5,
+      "pay_distribution": {
+        "6-10L": 20,
+        "10-20L": 38,
+        "20L+": 20,
+        "3-6L": 12,
+        "<3L": 7
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 72,
+        "Fresher (0-1)": 15,
+        "Senior (7-12)": 221,
+        "Mid (3-7)": 328,
+        "Expert (12+)": 42
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          148
+        ],
+        [
+          "Hyderabad",
+          89
+        ],
+        [
+          "Pune",
+          73
+        ],
+        [
+          "Chennai",
+          51
+        ],
+        [
+          "Mumbai",
+          43
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.05
+    },
+    {
+      "name": "Drivers & Delivery",
+      "count": 229836,
+      "naukri_listings": 537,
+      "ai_exposure": 2,
+      "avg_salary_lakhs": 8.0,
+      "avg_experience": 7.6,
+      "pay_distribution": {
+        "<3L": 35,
+        "20L+": 12,
+        "10-20L": 12,
+        "3-6L": 26,
+        "6-10L": 9
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 97,
+        "Expert (12+)": 118,
+        "Fresher (0-1)": 27,
+        "Mid (3-7)": 188,
+        "Senior (7-12)": 107
+      },
+      "top_cities": [
+        [
+          "Bengaluru",
+          165
+        ],
+        [
+          "Mumbai",
+          65
+        ],
+        [
+          "Hyderabad",
+          65
+        ],
+        [
+          "Pune",
+          38
+        ],
+        [
+          "Navi Mumbai",
+          31
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.04
+    },
+    {
+      "name": "Pharmacy & Life Sciences",
+      "count": 190888,
+      "naukri_listings": 446,
+      "ai_exposure": 4,
+      "avg_salary_lakhs": 6.7,
+      "avg_experience": 4.8,
+      "pay_distribution": {
+        "<3L": 76,
+        "3-6L": 100,
+        "6-10L": 25,
+        "10-20L": 18,
+        "20L+": 11
+      },
+      "experience_distribution": {
+        "Junior (1-3)": 120,
+        "Senior (7-12)": 47,
+        "Expert (12+)": 35,
+        "Fresher (0-1)": 70,
+        "Mid (3-7)": 174
+      },
+      "top_cities": [
+        [
+          "Hyderabad",
+          48
+        ],
+        [
+          "Bengaluru",
+          25
+        ],
+        [
+          "Mumbai",
+          22
+        ],
+        [
+          "Ahmedabad",
+          18
+        ],
+        [
+          "Chennai",
+          17
+        ]
+      ],
+      "sector": "organized",
+      "data_source": "naukri",
+      "percentage": 0.03
+    }
+  ]
+}

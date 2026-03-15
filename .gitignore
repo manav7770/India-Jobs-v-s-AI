@@ -1,0 +1,13 @@
+.vercel
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+.vscode/
+.env
+.venv/
+deploy/.vercel/
+PLFS_Data_2023-24/

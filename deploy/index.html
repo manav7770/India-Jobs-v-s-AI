@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indian Workforce × AI Exposure (PLFS 2023-24)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #1a1a1a;
+    color: #e0e0e0;
+    overflow: hidden;
+  }
+
+  .page-container {
+    display: flex;
+    height: 100vh;
+  }
+
+  /* ───── LEFT SIDEBAR ───── */
+  .left-panel {
+    width: 260px;
+    min-width: 260px;
+    background: #1a1a1a;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-right: 1px solid #2e2e2e;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #444 #1a1a1a;
+  }
+  .left-panel::-webkit-scrollbar { width: 5px; }
+  .left-panel::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+
+  .tab-bar { display: flex; gap: 4px; }
+  .tab {
+    padding: 7px 14px;
+    border: 1px solid #444;
+    background: transparent;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+  .tab:hover { border-color: #666; color: #ddd; }
+  .tab.active { background: #2a2a2a; color: #fff; border-color: #555; }
+
+  /* Sector toggle */
+  .sector-toggle {
+    display: flex;
+    background: #222;
+    border-radius: 6px;
+    padding: 2px;
+    gap: 2px;
+  }
+  .sector-btn {
+    flex: 1;
+    padding: 6px 4px;
+    border: none;
+    background: transparent;
+    color: #777;
+    cursor: pointer;
+    font-size: 10px;
+    font-family: inherit;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .sector-btn:hover { color: #bbb; background: #2a2a2a; }
+  .sector-btn.active {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  }
+  .sector-btn .btn-count {
+    display: block;
+    font-size: 9px;
+    color: #555;
+    font-weight: 400;
+    margin-top: 1px;
+  }
+  .sector-btn.active .btn-count { color: #888; }
+
+  .stat-section { display: flex; flex-direction: column; gap: 3px; }
+  .stat-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    color: #666;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+  .stat-value {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+  }
+  .stat-value.gold { color: #e8a838; }
+  .stat-sub {
+    font-size: 10px;
+    color: #555;
+    line-height: 1.3;
+  }
+
+  .divider {
+    height: 1px;
+    background: #2a2a2a;
+    margin: 2px 0;
+  }
+
+  /* Bar charts */
+  .bar-chart { display: flex; flex-direction: column; gap: 4px; }
+  .bar-row { display: flex; align-items: center; gap: 6px; font-size: 10px; }
+  .bar-label {
+    width: 72px;
+    text-align: right;
+    color: #777;
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .bar-track {
+    flex: 1;
+    height: 14px;
+    background: #222;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+  }
+  .bar-segment { height: 100%; }
+  .bar-val {
+    width: 24px;
+    text-align: right;
+    color: #999;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  /* Breakdown */
+  .breakdown-section { display: flex; flex-direction: column; gap: 2px; }
+  .breakdown-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 10px;
+    line-height: 1.6;
+  }
+  .breakdown-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .breakdown-text { flex: 1; color: #aaa; }
+  .breakdown-count {
+    color: #888;
+    font-variant-numeric: tabular-nums;
+    min-width: 36px;
+    text-align: right;
+    font-weight: 500;
+  }
+  .breakdown-pct {
+    color: #555;
+    min-width: 28px;
+    text-align: right;
+  }
+
+  .wages-value {
+    font-size: 38px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+  .wages-sub {
+    font-size: 10px;
+    color: #555;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .legend-bar { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
+  .legend-gradient {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(to right,
+      rgb(30,80,15),
+      rgb(50,110,22),
+      rgb(115,125,28),
+      rgb(175,115,32),
+      rgb(185,70,28),
+      rgb(155,30,25)
+    );
+  }
+  .legend-label { font-size: 10px; color: #666; }
+
+  /* ───── TREEMAP ───── */
+  .treemap-container {
+    flex: 1;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  #treemap {
+    flex: 1;
+    position: relative;
+  }
+
+  .treemap-cell {
+    position: absolute;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: box-shadow 0.15s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5px 7px;
+    border: 1px solid rgba(0,0,0,0.4);
+  }
+  .treemap-cell:hover {
+    z-index: 10;
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.25), 0 4px 16px rgba(0,0,0,0.5);
+  }
+  .cell-title {
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.15;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+  }
+  .cell-subtitle {
+    color: rgba(255,255,255,0.7);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Tooltip */
+  .tooltip {
+    position: fixed;
+    background: #252525;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 12px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.12s;
+    max-width: 400px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+  .tooltip.visible { opacity: 1; }
+  .tooltip-title {
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #333;
+  }
+  .tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 3px 0;
+    color: #999;
+    font-size: 12px;
+  }
+  .tooltip-row span:last-child { font-weight: 600; color: #eee; }
+  .tooltip-cities {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #333;
+    color: #777;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  /* Scatter */
+  #scatterContainer {
+    flex: 1;
+    display: none;
+    position: relative;
+  }
+  #scatterCanvas { width: 100%; height: 100%; }
+  .scatter-axis-label {
+    position: absolute;
+    color: #666;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .scatter-x-label { bottom: 10px; left: 50%; transform: translateX(-50%); }
+  .scatter-y-label {
+    left: 10px; top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: left center;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-container">
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <div class="tab-bar">
+      <button class="tab active" id="tabTreemap" onclick="showView('treemap')">Treemap</button>
+      <button class="tab" id="tabScatter" onclick="showView('scatter')">Exposure vs Outlook</button>
+    </div>
+
+    <div class="sector-toggle" id="sectorToggle">
+      <button class="sector-btn active" data-filter="all" onclick="setSectorFilter('all')">
+        All<span class="btn-count" id="countAll"></span>
+      </button>
+      <button class="sector-btn" data-filter="organized" onclick="setSectorFilter('organized')">
+        Organized<span class="btn-count" id="countOrg"></span>
+      </button>
+      <button class="sector-btn" data-filter="unorganized" onclick="setSectorFilter('unorganized')">
+        Unorganized<span class="btn-count" id="countUnorg"></span>
+      </button>
+    </div>
+
+    <div class="stat-section">
+      <div class="stat-label">Total Workers</div>
+      <div class="stat-value" id="totalJobs">—</div>
+      <div class="stat-sub" id="workerBreakdown"></div>
+    </div>
+
+    <div class="stat-section">
+      <div class="stat-label">Weighted Avg. Exposure</div>
+      <div class="stat-value gold" id="avgExposure">—</div>
+      <div class="stat-sub">job-weighted, 0–10 scale</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="stat-section">
+      <div class="stat-label">Workers by AI Exposure</div>
+      <div id="exposureBarContainer" style="margin-top:4px"></div>
+    </div>
+
+    <div class="stat-section">
+      <div class="stat-label">Breakdown</div>
+      <div class="breakdown-section" id="breakdownSection"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="stat-section">
+      <div class="stat-label">Exposure by Pay</div>
+      <div class="bar-chart" id="payChart"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="stat-section">
+      <div class="stat-label">Exposure by Experience</div>
+      <div class="bar-chart" id="expChart"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="stat-section">
+      <div class="stat-label">Wages Exposed</div>
+      <div class="wages-value" id="wagesExposed">—</div>
+      <div class="wages-sub">estimated annual wages in<br/>high-exposure categories (7+)</div>
+    </div>
+
+    <div class="legend-bar">
+      <span class="legend-label">Low</span>
+      <div class="legend-gradient"></div>
+      <span class="legend-label">High</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="treemap-container">
+    <div id="treemap"></div>
+    <div id="scatterContainer">
+      <canvas id="scatterCanvas"></canvas>
+      <div class="scatter-axis-label scatter-x-label">AI Exposure Score →</div>
+      <div class="scatter-axis-label scatter-y-label">↑ Avg Salary (Lakhs PA)</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tooltip -->
+<div class="tooltip" id="tooltip">
+  <div class="tooltip-title" id="tooltipTitle"></div>
+  <div id="tooltipBody"></div>
+</div>
+
+<script>
+let DATA = null;
+let FULL_DATA = null;  // original unfiltered data
+let currentFilter = 'all'; // 'all' | 'organized' | 'unorganized'
+
+/* ─── Color scale: 0=deep green → 10=deep red ─── */
+function exposureColor(score) {
+  const stops = [
+    [0,  [30, 80, 15]],
+    [1,  [38, 95, 18]],
+    [2,  [50, 110, 22]],
+    [3,  [75, 120, 25]],
+    [4,  [115, 125, 28]],
+    [5,  [145, 125, 30]],
+    [6,  [175, 115, 32]],
+    [7,  [190, 100, 32]],
+    [8,  [185, 70, 28]],
+    [9,  [170, 48, 28]],
+    [10, [155, 30, 25]],
+  ];
+  const s = Math.max(0, Math.min(10, score));
+  const idx = Math.floor(s);
+  if (idx >= 10) return `rgb(${stops[10][1].join(',')})`;
+  const t = s - idx;
+  const a = stops[idx][1], b = stops[idx+1][1];
+  const r = Math.round(a[0] + t*(b[0]-a[0]));
+  const g = Math.round(a[1] + t*(b[1]-a[1]));
+  const bl = Math.round(a[2] + t*(b[2]-a[2]));
+  return `rgb(${r},${g},${bl})`;
+}
+
+/* ─── Sector filter ─── */
+function setSectorFilter(filter) {
+  currentFilter = filter;
+  document.querySelectorAll('.sector-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.filter === filter);
+  });
+  DATA = buildFilteredData(filter);
+  renderLeftPanel();
+  const tm = document.getElementById('treemap');
+  if (tm.style.display !== 'none') renderTreemap(); else renderScatter();
+}
+
+function buildFilteredData(filter) {
+  let cats;
+  if (filter === 'all') {
+    cats = FULL_DATA.categories;
+  } else if (filter === 'organized') {
+    cats = FULL_DATA.categories.filter(c => c.data_source === 'naukri');
+  } else {
+    cats = FULL_DATA.categories.filter(c => c.data_source === 'plfs');
+  }
+
+  const totalWorkers = cats.reduce((s,c) => s + c.count, 0);
+
+  // Recompute percentages
+  cats = cats.map(c => ({ ...c, percentage: totalWorkers > 0 ? Math.round(c.count / totalWorkers * 10000) / 100 : 0 }));
+
+  // Weighted avg exposure
+  const weightedSum = cats.reduce((s,c) => s + c.ai_exposure * c.count, 0);
+  const weightedAvg = totalWorkers > 0 ? Math.round(weightedSum / totalWorkers * 10) / 10 : 0;
+
+  // Exposure breakdown
+  const eb = { 'Minimal (0-1)': 0, 'Low (2-3)': 0, 'Moderate (4-5)': 0, 'High (6-7)': 0, 'Very high (8-10)': 0 };
+  cats.forEach(c => {
+    const s = c.ai_exposure;
+    if (s <= 1) eb['Minimal (0-1)'] += c.count;
+    else if (s <= 3) eb['Low (2-3)'] += c.count;
+    else if (s <= 5) eb['Moderate (4-5)'] += c.count;
+    else if (s <= 7) eb['High (6-7)'] += c.count;
+    else eb['Very high (8-10)'] += c.count;
+  });
+
+  // Exposure by pay
+  const payOrder = ['<3L','3-6L','6-10L','10-20L','20L+'];
+  const ebPay = {};
+  payOrder.forEach(pb => {
+    let tw = 0, ts = 0;
+    cats.forEach(c => {
+      const n = (c.pay_distribution || {})[pb] || 0;
+      if (n > 0) { tw += n; ts += c.ai_exposure * n; }
+    });
+    ebPay[pb] = tw > 0 ? Math.round(ts / tw * 10) / 10 : 0;
+  });
+
+  // Exposure by experience
+  const expOrder = ['Fresher (0-1)','Junior (1-3)','Mid (3-7)','Senior (7-12)','Expert (12+)'];
+  const ebExp = {};
+  expOrder.forEach(xb => {
+    let tw = 0, ts = 0;
+    cats.forEach(c => {
+      const n = (c.experience_distribution || {})[xb] || 0;
+      if (n > 0) { tw += n; ts += c.ai_exposure * n; }
+    });
+    ebExp[xb] = tw > 0 ? Math.round(ts / tw * 10) / 10 : 0;
+  });
+
+  // Wages exposed
+  let wagesExposed = 0;
+  cats.forEach(c => {
+    if (c.ai_exposure >= 7) wagesExposed += c.count * c.avg_salary_lakhs * 100000;
+  });
+
+  // Format total
+  let fmt;
+  if (totalWorkers >= 1e9) fmt = (totalWorkers/1e9).toFixed(2)+'B';
+  else if (totalWorkers >= 1e6) fmt = (totalWorkers/1e6).toFixed(0)+'M';
+  else if (totalWorkers >= 1e3) fmt = (totalWorkers/1e3).toFixed(0)+'K';
+  else fmt = totalWorkers.toString();
+
+  return {
+    ...FULL_DATA,
+    categories: cats,
+    total_workers: totalWorkers,
+    total_workers_formatted: fmt,
+    weighted_avg_exposure: weightedAvg,
+    exposure_breakdown: eb,
+    exposure_by_pay: ebPay,
+    exposure_by_experience: ebExp,
+    wages_exposed_crores: Math.round(wagesExposed / 1e7),
+  };
+}
+
+/* ─── Squarified treemap layout ─── */
+function layoutRect(items, x, y, w, h, rects, totalValue) {
+  if (!items.length || w <= 0 || h <= 0) return;
+  if (items.length === 1) {
+    rects.push({ ...items[0], x, y, w, h });
+    return;
+  }
+  const total = items.reduce((s,i) => s + i.value, 0);
+  if (total <= 0) return;
+
+  const vertical = w >= h;
+  let row = [], rowTotal = 0, bestWorst = Infinity;
+
+  for (let i = 0; i < items.length; i++) {
+    const testRow = [...row, items[i]];
+    const testTotal = rowTotal + items[i].value;
+    const side = vertical ? (testTotal/total)*w : (testTotal/total)*h;
+
+    let worstAR = 0;
+    for (const it of testRow) {
+      const f = it.value / testTotal;
+      const is2 = vertical ? f*h : f*w;
+      const ar = Math.max(side/is2, is2/side);
+      if (ar > worstAR) worstAR = ar;
+    }
+
+    if (worstAR <= bestWorst || !row.length) {
+      row = testRow; rowTotal = testTotal; bestWorst = worstAR;
+    } else {
+      const frac = rowTotal / total;
+      if (vertical) {
+        const rw = frac * w;
+        let cy = y;
+        for (const it of row) {
+          const ih = (it.value/rowTotal)*h;
+          rects.push({...it, x, y:cy, w:rw, h:ih}); cy += ih;
+        }
+        layoutRect(items.slice(i), x+rw, y, w-rw, h, rects, total-rowTotal);
+      } else {
+        const rh = frac * h;
+        let cx = x;
+        for (const it of row) {
+          const iw = (it.value/rowTotal)*w;
+          rects.push({...it, x:cx, y, w:iw, h:rh}); cx += iw;
+        }
+        layoutRect(items.slice(i), x, y+rh, w, h-rh, rects, total-rowTotal);
+      }
+      return;
+    }
+  }
+  // flush last row
+  if (row.length) {
+    const frac = rowTotal / total;
+    if (vertical) {
+      const rw = frac*w; let cy = y;
+      for (const it of row) {
+        const ih = (it.value/rowTotal)*h;
+        rects.push({...it, x, y:cy, w:rw, h:ih}); cy+=ih;
+      }
+    } else {
+      const rh = frac*h; let cx = x;
+      for (const it of row) {
+        const iw = (it.value/rowTotal)*w;
+        rects.push({...it, x:cx, y, w:iw, h:rh}); cx+=iw;
+      }
+    }
+  }
+}
+
+function formatCount(n) {
+  if (n >= 10000000) return (n/10000000).toFixed(1)+'Cr';
+  if (n >= 100000) return (n/100000).toFixed(1)+'L';
+  if (n >= 1000) return (n/1000).toFixed(1)+'K';
+  return n.toLocaleString('en-IN');
+}
+
+function formatWorkers(n) {
+  if (n >= 1e9) return (n/1e9).toFixed(2)+'B';
+  if (n >= 1e6) return (n/1e6).toFixed(1)+'M';
+  if (n >= 1e3) return (n/1e3).toFixed(0)+'K';
+  return n.toString();
+}
+
+/* ─── Render the treemap ─── */
+function renderTreemap() {
+  const container = document.getElementById('treemap');
+  container.innerHTML = '';
+  const W = container.clientWidth;
+  const H = container.clientHeight;
+  if (W < 10 || H < 10) return;
+
+  const items = DATA.categories.map(c => ({ value: c.count, data: c }));
+  const rects = [];
+  layoutRect(items, 0, 0, W, H, rects, items.reduce((s,i)=>s+i.value,0));
+
+  const gap = 2;
+  rects.forEach(cell => {
+    const d = cell.data;
+    const el = document.createElement('div');
+    el.className = 'treemap-cell';
+    el.style.left = (cell.x + gap/2) + 'px';
+    el.style.top = (cell.y + gap/2) + 'px';
+    el.style.width = Math.max(0, cell.w - gap) + 'px';
+    el.style.height = Math.max(0, cell.h - gap) + 'px';
+    el.style.backgroundColor = exposureColor(d.ai_exposure);
+
+    const cw = cell.w - gap;
+    const ch = cell.h - gap;
+
+    if (cw > 50 && ch > 22) {
+      const titleEl = document.createElement('div');
+      titleEl.className = 'cell-title';
+      let titleText = d.name;
+      const fontSize = cw > 200 ? 14 : cw > 130 ? 12 : cw > 80 ? 10 : 9;
+      titleEl.style.fontSize = fontSize + 'px';
+      const maxChars = Math.floor(cw / (fontSize * 0.55));
+      if (titleText.length > maxChars + 3) titleText = titleText.substring(0, maxChars) + '…';
+      titleEl.textContent = titleText;
+      el.appendChild(titleEl);
+
+      if (ch > 38 && cw > 70) {
+        const subEl = document.createElement('div');
+        subEl.className = 'cell-subtitle';
+        const subSize = cw > 200 ? 11 : cw > 130 ? 10 : 9;
+        subEl.style.fontSize = subSize + 'px';
+        subEl.textContent = d.ai_exposure + '/10 · ' + formatCount(d.count) + ' workers';
+        el.appendChild(subEl);
+      }
+    }
+
+    el.addEventListener('mouseenter', e => showTooltip(e, d));
+    el.addEventListener('mousemove', e => moveTooltip(e));
+    el.addEventListener('mouseleave', hideTooltip);
+    container.appendChild(el);
+  });
+}
+
+/* ─── Tooltip ─── */
+function showTooltip(e, d) {
+  const tip = document.getElementById('tooltip');
+  document.getElementById('tooltipTitle').textContent = d.name;
+  let html = '';
+  html += `<div class="tooltip-row"><span>AI Exposure</span><span style="color:${exposureColor(d.ai_exposure)};font-size:14px">${d.ai_exposure}/10</span></div>`;
+  html += `<div class="tooltip-row"><span>Workers</span><span>${formatCount(d.count)} (${d.percentage}%)</span></div>`;
+  html += `<div class="tooltip-row"><span>Avg Salary</span><span>₹${d.avg_salary_lakhs}L PA</span></div>`;
+  html += `<div class="tooltip-row"><span>Avg Experience</span><span>${d.avg_experience} yrs</span></div>`;
+  const srcLabel = d.data_source === 'plfs' ? 'PLFS 2023-24' : 'Naukri.com';
+  const sectorLabel = d.sector === 'organized' ? 'Organized' : (d.sector.charAt(0).toUpperCase() + d.sector.slice(1));
+  html += `<div class="tooltip-row"><span>Source</span><span>${srcLabel} · ${sectorLabel}</span></div>`;
+  if (d.description) {
+    html += `<div class="tooltip-cities" style="color:#888;font-size:11px;">${d.description}</div>`;
+  }
+  if (d.top_cities && d.top_cities.length) {
+    html += '<div class="tooltip-cities"><strong>Top locations:</strong> ' +
+      d.top_cities.map(c => c[0]+' ('+formatCount(c[1])+')').join(' · ') + '</div>';
+  }
+  document.getElementById('tooltipBody').innerHTML = html;
+  tip.classList.add('visible');
+  moveTooltip(e);
+}
+function moveTooltip(e) {
+  const tip = document.getElementById('tooltip');
+  let x = e.clientX + 16, y = e.clientY + 16;
+  if (x + tip.offsetWidth > window.innerWidth - 10) x = e.clientX - tip.offsetWidth - 16;
+  if (y + tip.offsetHeight > window.innerHeight - 10) y = e.clientY - tip.offsetHeight - 16;
+  tip.style.left = x+'px'; tip.style.top = y+'px';
+}
+function hideTooltip() {
+  document.getElementById('tooltip').classList.remove('visible');
+}
+
+/* ─── Left panel rendering ─── */
+function renderLeftPanel() {
+  document.getElementById('totalJobs').textContent = DATA.total_workers_formatted;
+  document.getElementById('avgExposure').textContent = DATA.weighted_avg_exposure;
+
+  const sub = document.getElementById('workerBreakdown');
+  if (currentFilter === 'all') {
+    const org = (FULL_DATA.organized_sector_workers/1e6).toFixed(0);
+    const inf = (FULL_DATA.informal_sector_workers/1e6).toFixed(0);
+    sub.textContent = `Organized ${org}M · Informal ${inf}M`;
+  } else if (currentFilter === 'organized') {
+    sub.textContent = 'Naukri.com listings × 428 scale factor';
+  } else {
+    sub.textContent = 'PLFS 2023-24 government estimates';
+  }
+
+  const wCr = DATA.wages_exposed_crores;
+  let wLabel;
+  if (wCr >= 100000) wLabel = '₹' + (wCr/100000).toFixed(1) + 'L Cr';
+  else if (wCr >= 1000) wLabel = '₹' + (wCr/1000).toFixed(1) + 'K Cr';
+  else wLabel = '₹' + wCr + ' Cr';
+  document.getElementById('wagesExposed').textContent = wLabel;
+
+  renderExposureBar();
+  renderBreakdown();
+  renderBarChart('payChart', DATA.exposure_by_pay);
+  renderBarChart('expChart', DATA.exposure_by_experience);
+}
+
+function renderExposureBar() {
+  const container = document.getElementById('exposureBarContainer');
+  container.innerHTML = '';
+  const bd = DATA.exposure_breakdown;
+  const total = Object.values(bd).reduce((s,v)=>s+v,0);
+
+  const colors = {
+    'Minimal (0-1)': '#2a6010',
+    'Low (2-3)': '#3d8018',
+    'Moderate (4-5)': '#7a8a1e',
+    'High (6-7)': '#b87228',
+    'Very high (8-10)': '#a83020',
+  };
+  const order = ['Minimal (0-1)','Low (2-3)','Moderate (4-5)','High (6-7)','Very high (8-10)'];
+
+  const track = document.createElement('div');
+  track.style.cssText = 'display:flex;height:22px;border-radius:3px;overflow:hidden;background:#222;';
+  order.forEach(key => {
+    const pct = ((bd[key]||0)/total*100);
+    const seg = document.createElement('div');
+    seg.style.cssText = `width:${pct}%;background:${colors[key]};`;
+    track.appendChild(seg);
+  });
+  container.appendChild(track);
+
+  const labels = document.createElement('div');
+  labels.style.cssText = 'display:flex;justify-content:space-between;font-size:9px;color:#555;margin-top:2px;';
+  labels.innerHTML = '<span>0</span><span>5</span><span>10</span>';
+  container.appendChild(labels);
+}
+
+function renderBreakdown() {
+  const container = document.getElementById('breakdownSection');
+  container.innerHTML = '';
+  const bd = DATA.exposure_breakdown;
+  const total = Object.values(bd).reduce((s,v)=>s+v,0);
+
+  const colors = {
+    'Minimal (0-1)': '#2a6010',
+    'Low (2-3)': '#3d8018',
+    'Moderate (4-5)': '#7a8a1e',
+    'High (6-7)': '#b87228',
+    'Very high (8-10)': '#a83020',
+  };
+  const order = ['Minimal (0-1)','Low (2-3)','Moderate (4-5)','High (6-7)','Very high (8-10)'];
+
+  order.forEach(key => {
+    const val = bd[key]||0;
+    const pct = Math.round(val/total*100);
+    const row = document.createElement('div');
+    row.className = 'breakdown-row';
+    row.innerHTML = `
+      <div class="breakdown-dot" style="background:${colors[key]}"></div>
+      <div class="breakdown-text">${key}</div>
+      <div class="breakdown-count">${formatCount(val)}</div>
+      <div class="breakdown-pct">${pct}%</div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function renderBarChart(id, data) {
+  const container = document.getElementById(id);
+  container.innerHTML = '';
+  Object.entries(data).forEach(([label, value]) => {
+    const pct = (value / 10) * 100;
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `
+      <div class="bar-label">${label}</div>
+      <div class="bar-track">
+        <div class="bar-segment" style="width:${pct}%;background:${exposureColor(value)}"></div>
+      </div>
+      <div class="bar-val">${value}</div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+/* ─── Scatter plot ─── */
+function renderScatter() {
+  const container = document.getElementById('scatterContainer');
+  const canvas = document.getElementById('scatterCanvas');
+  const W = container.clientWidth, H = container.clientHeight;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = W*dpr; canvas.height = H*dpr;
+  canvas.style.width = W+'px'; canvas.style.height = H+'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0,0,W,H);
+
+  const pad = {left:65, right:30, top:30, bottom:50};
+  const pw = W-pad.left-pad.right, ph = H-pad.top-pad.bottom;
+
+  ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top);
+  ctx.lineTo(pad.left, pad.top+ph);
+  ctx.lineTo(pad.left+pw, pad.top+ph);
+  ctx.stroke();
+
+  ctx.strokeStyle = '#242424'; ctx.setLineDash([2,4]);
+  for (let i=0;i<=10;i+=2) {
+    const x = pad.left + (i/10)*pw;
+    ctx.beginPath(); ctx.moveTo(x,pad.top); ctx.lineTo(x,pad.top+ph); ctx.stroke();
+    ctx.fillStyle='#555'; ctx.font='10px Inter'; ctx.textAlign='center';
+    ctx.fillText(i, x, pad.top+ph+16);
+  }
+  const maxSal = Math.ceil(Math.max(...DATA.categories.map(c=>c.avg_salary_lakhs))/5)*5;
+  for (let s=0;s<=maxSal;s+=5) {
+    const y = pad.top+ph-(s/maxSal)*ph;
+    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(pad.left+pw,y); ctx.stroke();
+    ctx.fillStyle='#555'; ctx.font='10px Inter'; ctx.textAlign='right';
+    ctx.fillText('₹'+s+'L', pad.left-8, y+4);
+  }
+  ctx.setLineDash([]);
+
+  const maxCnt = Math.max(...DATA.categories.map(c=>c.count));
+  DATA.categories.forEach(c => {
+    const x = pad.left + (c.ai_exposure/10)*pw;
+    const y = pad.top+ph-(c.avg_salary_lakhs/maxSal)*ph;
+    const logSize = Math.log10(c.count+1) / Math.log10(maxCnt+1);
+    const r = 8 + logSize * 28;
+
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2);
+    ctx.fillStyle = exposureColor(c.ai_exposure)+'88';
+    ctx.fill();
+    ctx.strokeStyle = exposureColor(c.ai_exposure);
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    if (r > 16) {
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 8px Inter'; ctx.textAlign = 'center';
+      const label = c.name.length > 18 ? c.name.substring(0,16)+'…' : c.name;
+      ctx.fillText(label, x, y+3);
+    }
+  });
+}
+
+/* ─── View switching ─── */
+function showView(view) {
+  const treemap = document.getElementById('treemap');
+  const scatter = document.getElementById('scatterContainer');
+  document.getElementById('tabTreemap').classList.toggle('active', view==='treemap');
+  document.getElementById('tabScatter').classList.toggle('active', view==='scatter');
+  if (view === 'treemap') {
+    treemap.style.display = 'block';
+    scatter.style.display = 'none';
+    renderTreemap();
+  } else {
+    treemap.style.display = 'none';
+    scatter.style.display = 'block';
+    renderScatter();
+  }
+}
+
+/* ─── Init ─── */
+async function init() {
+  const resp = await fetch('job_data.json');
+  FULL_DATA = await resp.json();
+  DATA = FULL_DATA;
+
+  // Populate toggle button counts
+  const orgW = FULL_DATA.organized_sector_workers || 0;
+  const infW = FULL_DATA.informal_sector_workers || 0;
+  const allW = FULL_DATA.total_workers || 0;
+  document.getElementById('countAll').textContent = allW >= 1e6 ? (allW/1e6).toFixed(0)+'M' : (allW/1e3).toFixed(0)+'K';
+  document.getElementById('countOrg').textContent = orgW >= 1e6 ? (orgW/1e6).toFixed(0)+'M' : (orgW/1e3).toFixed(0)+'K';
+  document.getElementById('countUnorg').textContent = infW >= 1e6 ? (infW/1e6).toFixed(0)+'M' : (infW/1e3).toFixed(0)+'K';
+
+  renderLeftPanel();
+  renderTreemap();
+}
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (!DATA) return;
+    const tm = document.getElementById('treemap');
+    if (tm.style.display !== 'none') renderTreemap(); else renderScatter();
+  }, 150);
+});
+
+init();
+</script>
+</body>
+</html>
